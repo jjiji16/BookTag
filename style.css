@@ -1,0 +1,223 @@
+/* 기본 설정 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: #ffffff; /* rgb(255,255,255) */
+  color: #7a7a7a;
+}
+
+/* 상단 네비게이션 */
+.nav {
+  background-color: #45dbdd; /* rgb(69,219,221) */
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+/* 메인 레이아웃 */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 0; /* 아래쪽 패딩은 survey-wrap에서 처리 */
+}
+
+/* 히어로 영역 */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* 제목 + 아이콘 한 줄 정렬 */
+.hero-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-search-icon {
+  width: 25px;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #45dbdd;
+  margin: 0;
+}
+
+.hero-desc {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.9;
+  margin: 4px 0 0;
+}
+
+/* 단계 탭 */
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0 0;
+}
+
+.step-chip {
+  padding: 10px 22px;
+  border-radius: 22px;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #d9d9d9;
+  cursor: default;
+}
+
+.step-chip--active {
+  background-color: #45dbdd;
+}
+
+.step-line {
+  flex-shrink: 0;
+  width: 43px;
+  border-top: 2px dashed #d9d9d9;
+}
+
+.step-line--active {
+  border-top-color: #45dbdd;
+}
+
+/* 설문 전체 회색 영역 */
+.survey-wrap {
+  background-color: rgba(230, 230, 230, 0.18);
+  margin-top: 30px;
+  padding: 30px 0 60px;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  /* min-height: calc(100vh - 70px - 30px);  <- 삭제! */
+}
+
+.survey-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 질문 공통 */
+.question {
+  margin-bottom: 40px;
+}
+
+.question-title {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.9;
+  margin: 0 0 16px;
+}
+
+.highlight {
+  color: #45dbdd;
+}
+
+/* 카드 그리드 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.choice-card {
+  height: 119px;
+  border-radius: 11px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 3px 4px 11px -3px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: 500;
+  color: #7a7a7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+/* 다음 버튼 */
+.next-btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.primary-btn {
+  min-width: 194px;
+  height: 48px;
+  padding: 10px 40px;
+  border-radius: 22px;
+  border: none;
+  background-color: #45dbdd;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 반응형 여유 (원하면 유지) */
+@media (max-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 16px 0;
+  }
+
+  .hero-title {
+    font-size: 28px;
+  }
+
+  .steps {
+    flex-wrap: wrap;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
